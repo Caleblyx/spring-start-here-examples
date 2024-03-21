@@ -1,4 +1,6 @@
-package com.cspringstarthere;
+package com.cspringstarthere.config;
+
+
 
 public class Parrot {
     private String name;
