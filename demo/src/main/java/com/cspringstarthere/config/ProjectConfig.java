@@ -12,11 +12,15 @@ public class ProjectConfig {
         return p;
     }
     @Bean
-    String hello() {
-        return "Hello";
+    Parrot parrot2() {
+        var p = new Parrot();
+        p.setName("Miki");
+        return p;
     }
     @Bean
-    Integer ten() {
-        return 10;
+    Parrot parrot3() {
+        var p = new Parrot();
+        p.setName("Riki");
+        return p;
     }
 }
