@@ -1,26 +1,13 @@
 package com.cspringstarthere.config;
 
-import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
 
+
+
 @Configuration
+@ComponentScan(basePackages = "com.cspringstarthere.main")
 public class ProjectConfig {
-    @Bean
-    Parrot parrot() {
-        var p = new Parrot();
-        p.setName("Koko");
-        return p;
-    }
-    @Bean(name="miki")
-    Parrot parrot2() {
-        var p = new Parrot();
-        p.setName("Miki");
-        return p;
-    }
-    @Bean
-    Parrot parrot3() {
-        var p = new Parrot();
-        p.setName("Riki");
-        return p;
-    }
+
 }
+
