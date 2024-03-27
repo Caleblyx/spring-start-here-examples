@@ -1,8 +1,13 @@
-package com.cspringstarthere.main;
+package com.cspringstarthere.beans;
 
+import org.springframework.stereotype.Component;
+import org.springframework.beans.factory.annotation.Autowired;
+
+@Component
 public class Person {
 
     private String name;
+    @Autowired
     private Parrot parrot;
 
     public void setName(String name) {

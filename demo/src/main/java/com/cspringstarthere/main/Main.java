@@ -2,9 +2,9 @@ package com.cspringstarthere.main;
 
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
+import com.cspringstarthere.beans.Parrot;
+import com.cspringstarthere.beans.Person;
 import com.cspringstarthere.config.ProjectConfig;
-
-import com.cspringstarthere.main.Parrot;
 
 public class Main {
     public static void main(String[] args) {
@@ -12,10 +12,8 @@ public class Main {
 
 
         Person person = context.getBean(Person.class);
-        Parrot parrot = context.getBean(Parrot.class);
         
         System.out.println("Person's name: " + person.getName());
-        System.out.println("Parrot's name: " + parrot.getName());
         System.out.println("Person's parrot:" + person.getParrot());
     }
 }

@@ -1,8 +1,8 @@
-package com.cspringstarthere.main;
+package com.cspringstarthere.beans;
 
 import org.springframework.stereotype.Component;
 
-
+@Component
 public class Parrot {
     private String name;
     public Parrot() {
