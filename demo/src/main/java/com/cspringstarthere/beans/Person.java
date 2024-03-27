@@ -6,7 +6,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 @Component
 public class Person {
 
-    private String name;
+    private String name = "Ella";
     @Autowired
     private Parrot parrot;
 
