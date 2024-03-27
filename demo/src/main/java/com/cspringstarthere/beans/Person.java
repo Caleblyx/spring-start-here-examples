@@ -7,15 +7,18 @@ import org.springframework.beans.factory.annotation.Autowired;
 public class Person {
 
     private String name = "Ella";
+    
+    private final Parrot parrot;
+
     @Autowired
-    private Parrot parrot;
+    Person(Parrot parrot) {
+        this.parrot = parrot;
+    }
 
     public void setName(String name) {
         this.name = name;
     }
-    public void setParrot(Parrot parrot) {
-        this.parrot = parrot;
-    }
+
     public String getName() {
         return name;
     }
