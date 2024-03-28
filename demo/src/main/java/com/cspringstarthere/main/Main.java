@@ -1,19 +1,24 @@
 package com.cspringstarthere.main;
 
-import org.springframework.context.annotation.AnnotationConfigApplicationContext;
-
-import com.cspringstarthere.beans.Parrot;
-import com.cspringstarthere.beans.Person;
-import com.cspringstarthere.config.ProjectConfig;
+import com.cspringstarthere.model.Comment;
+import com.cspringstarthere.proxies.EmailCommentNotificationProxy;
+import com.cspringstarthere.repositories.CommentRepository;
+import com.cspringstarthere.repositories.DBCommentRepository;
+import com.cspringstarthere.services.CommentService;
 
 public class Main {
     public static void main(String[] args) {
-        var context = new AnnotationConfigApplicationContext(ProjectConfig.class);
 
+        var commentRepository = new DBCommentRepository();
 
-        Person person = context.getBean(Person.class);
-        
-        System.out.println("Person's name: " + person.getName());
-        System.out.println("Person's parrot:" + person.getParrot());
+        var commentNotificationProxy = new EmailCommentNotificationProxy();
+
+        var commentService = new CommentService(commentRepository, commentNotificationProxy);
+
+        var comment = new Comment();
+        comment.setAuthor("Laurentiu");
+        comment.setText("Demo comment");
+
+        commentService.publishComment(comment);
     }
 }
