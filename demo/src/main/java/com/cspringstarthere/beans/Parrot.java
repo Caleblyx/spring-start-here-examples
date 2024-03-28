@@ -7,9 +7,8 @@ import org.springframework.stereotype.Component;
 public class Parrot {
     private String name = "Koko";
 
-    @Autowired
     Person person;
-
+    @Autowired
     Parrot(Person person) {
         this.person = person;
     }
