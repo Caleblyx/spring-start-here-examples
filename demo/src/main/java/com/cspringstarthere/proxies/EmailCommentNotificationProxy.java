@@ -1,11 +1,13 @@
 package com.cspringstarthere.proxies;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
 import com.cspringstarthere.model.Comment;
 
 
 @Component
+@Qualifier("EMAIL")
 public class EmailCommentNotificationProxy implements CommentNotificationProxy {
 
     @Override

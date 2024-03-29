@@ -1,12 +1,13 @@
 package com.cspringstarthere.proxies;
 
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.context.annotation.Primary;
 import org.springframework.stereotype.Component;
 
 import com.cspringstarthere.model.Comment;
 
 @Component
-@Primary
+@Qualifier("PUSH")
 public class CommentPushNotificationProxy implements CommentNotificationProxy {
 
     @Override
