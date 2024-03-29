@@ -2,8 +2,12 @@ package com.cspringstarthere.services;
 
 import com.cspringstarthere.proxies.CommentNotificationProxy;
 import com.cspringstarthere.repositories.CommentRepository;
+
+import org.springframework.stereotype.Component;
+
 import com.cspringstarthere.model.Comment;
 
+@Component
 public class CommentService {
 
     private final CommentRepository commentRepository;

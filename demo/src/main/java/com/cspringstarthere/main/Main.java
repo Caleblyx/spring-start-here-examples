@@ -1,5 +1,8 @@
 package com.cspringstarthere.main;
 
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
+
+import com.cspringstarthere.config.ProjectConfiguration;
 import com.cspringstarthere.model.Comment;
 import com.cspringstarthere.proxies.EmailCommentNotificationProxy;
 import com.cspringstarthere.repositories.CommentRepository;
@@ -9,16 +12,16 @@ import com.cspringstarthere.services.CommentService;
 public class Main {
     public static void main(String[] args) {
 
-        var commentRepository = new DBCommentRepository();
 
-        var commentNotificationProxy = new EmailCommentNotificationProxy();
+    var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
 
-        var commentService = new CommentService(commentRepository, commentNotificationProxy);
+    var comment = new Comment();
 
-        var comment = new Comment();
-        comment.setAuthor("Laurentiu");
-        comment.setText("Demo comment");
+    comment.setAuthor("Laurentiu");
 
-        commentService.publishComment(comment);
+    comment.setText("Demo Comment");
+    
+    var commentService = context.getBean(CommentService.class);
+    commentService.publishComment(comment);
     }
 }
