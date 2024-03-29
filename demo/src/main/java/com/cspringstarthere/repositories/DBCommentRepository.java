@@ -4,7 +4,7 @@ import org.springframework.stereotype.Component;
 
 import com.cspringstarthere.model.Comment;
 
-@Component
+
 public class DBCommentRepository implements CommentRepository {
     
     @Override
