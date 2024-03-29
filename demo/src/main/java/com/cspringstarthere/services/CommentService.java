@@ -4,10 +4,11 @@ import com.cspringstarthere.proxies.CommentNotificationProxy;
 import com.cspringstarthere.repositories.CommentRepository;
 
 import org.springframework.stereotype.Component;
+import org.springframework.stereotype.Service;
 
 import com.cspringstarthere.model.Comment;
 
-@Component
+@Service
 public class CommentService {
 
     private final CommentRepository commentRepository;
