@@ -16,11 +16,10 @@ public class Main {
 
         var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
 
-        var s1 = context.getBean("commentService", CommentService.class);
-        var s2 = context.getBean("userService", UserService.class);
-        
-        boolean b1 = s1.getCommentRepository() == s2.getCommentRepository();
+        System.out.println("Before retrieving the CommentService");
 
-        System.out.println(b1);
+        var service = context.getBean(CommentService.class);
+
+        System.out.println("After retrieving the CommentService");
     }
 }
