@@ -1,5 +1,6 @@
 package com.cspringstarthere.config;
 
+import org.springframework.beans.factory.config.BeanDefinition;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.ComponentScan;
@@ -10,6 +11,9 @@ import com.cspringstarthere.proxies.EmailCommentNotificationProxy;
 import com.cspringstarthere.repositories.CommentRepository;
 import com.cspringstarthere.repositories.DBCommentRepository;
 import com.cspringstarthere.services.CommentService;
+import org.springframework.context.annotation.Scope;
+
+
 @Configuration
 public class ProjectConfiguration {
 
@@ -24,6 +28,7 @@ public class ProjectConfiguration {
     }
 
     @Bean
+    @Scope(BeanDefinition.SCOPE_PROTOTYPE)
     public CommentService commentService() {
         return new CommentService();
     }
