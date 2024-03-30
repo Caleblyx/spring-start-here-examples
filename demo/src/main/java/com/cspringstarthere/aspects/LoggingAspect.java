@@ -4,6 +4,7 @@ import java.util.Arrays;
 import java.util.logging.Logger;
 
 import org.aspectj.lang.ProceedingJoinPoint;
+import org.aspectj.lang.annotation.AfterReturning;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
 import org.springframework.stereotype.Component;
@@ -38,5 +39,11 @@ public class LoggingAspect {
         } catch (Throwable e) {
             return e;
         }
+    }
+
+    @AfterReturning(value="@annotation(com.cspringstarthere.annotations.ToLog)",
+                    returning = "returnedValue")
+    public void log(Object returnedValue) {
+        logger.info("Method executed and returned " + returnedValue);
     }
 }
