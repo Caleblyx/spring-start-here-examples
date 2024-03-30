@@ -24,11 +24,8 @@ public class ProjectConfiguration {
     }
 
     @Bean
-    public CommentService commentService(
-        CommentRepository commentRepository,
-        CommentNotificationProxy commentNotificationProxy) {
-            return new CommentService(commentRepository, commentNotificationProxy);
-        }
-    
-
+    public CommentService commentService() {
+        return new CommentService();
+    }
 }
+    
