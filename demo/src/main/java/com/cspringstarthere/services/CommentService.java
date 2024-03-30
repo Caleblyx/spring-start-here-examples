@@ -20,7 +20,8 @@ public class CommentService {
         logger.info("CommentService created!");
     }
 
-    public void publishComment(Comment comment) {
+    public String publishComment(Comment comment) {
         logger.info("Publishing comment:" + comment.getText());
+        return "SUCCESS";
     }
 }

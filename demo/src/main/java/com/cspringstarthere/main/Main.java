@@ -1,5 +1,9 @@
 package com.cspringstarthere.main;
 
+
+
+import java.util.logging.Logger;
+
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 import com.cspringstarthere.config.ProjectConfiguration;
@@ -12,7 +16,7 @@ import com.cspringstarthere.services.CommentService;
 public class Main {
     public static void main(String[] args) {
 
-
+        final Logger logger = Logger.getLogger(Main.class.getName());
         var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
 
         var service = context.getBean(CommentService.class);
@@ -22,6 +26,8 @@ public class Main {
         comment.setText("Demo comment");
         comment.setAuthor("Natasha");
 
-        service.publishComment(comment);
+        String value = service.publishComment(comment);
+
+        logger.info(value);
     }
 }

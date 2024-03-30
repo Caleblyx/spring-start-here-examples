@@ -19,4 +19,11 @@ public class Comment {
     public String getText() {
         return text;
     }
+
+    @Override
+    public String toString() {
+        // TODO Auto-generated method stub
+        String ret = "text='" + getText() + "', author='" + getAuthor() + "'";  
+        return ret;
+    }
 }
