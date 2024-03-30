@@ -11,21 +11,8 @@ import com.cspringstarthere.repositories.CommentRepository;
 import com.cspringstarthere.repositories.DBCommentRepository;
 import com.cspringstarthere.services.CommentService;
 @Configuration
+@ComponentScan(basePackages = {"com.cspringstarthere.repositories", "com.cspringstarthere.services"})
 public class ProjectConfiguration {
 
-    @Bean
-    public CommentRepository commentRepository() {
-        return new DBCommentRepository();
-    }
-
-    @Bean
-    public CommentNotificationProxy commentNotificationProxy() {
-        return new EmailCommentNotificationProxy();
-    }
-
-    @Bean
-    public CommentService commentService() {
-        return new CommentService();
-    }
 }
     

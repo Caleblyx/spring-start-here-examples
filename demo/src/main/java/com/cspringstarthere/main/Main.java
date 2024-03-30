@@ -8,6 +8,7 @@ import com.cspringstarthere.proxies.EmailCommentNotificationProxy;
 import com.cspringstarthere.repositories.CommentRepository;
 import com.cspringstarthere.repositories.DBCommentRepository;
 import com.cspringstarthere.services.CommentService;
+import com.cspringstarthere.services.UserService;
 
 public class Main {
     public static void main(String[] args) {
@@ -15,10 +16,10 @@ public class Main {
 
         var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
 
-        var cs1 = context.getBean("commentService", CommentService.class);
-        var cs2 = context.getBean("commentService", CommentService.class);
+        var s1 = context.getBean("commentService", CommentService.class);
+        var s2 = context.getBean("userService", UserService.class);
         
-        boolean b1 = cs1 == cs2;
+        boolean b1 = s1.getCommentRepository() == s2.getCommentRepository();
 
         System.out.println(b1);
     }
