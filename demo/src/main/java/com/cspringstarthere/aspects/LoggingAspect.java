@@ -23,27 +23,15 @@ public class LoggingAspect {
             String methodName = joinPoint.getSignature().getName();
             Object[] arguments = joinPoint.getArgs();
             
-            logger.info("Method " + methodName + " with parameters " + Arrays.asList(arguments) + " will execute");
+            logger.info("Logging Aspect: Calling the intercepted method");
             
-            Comment comment = new Comment();
+            Object returnedByMethod = joinPoint.proceed();
 
-            comment.setText("Some other text!");
-
-            Object[] newArguments = {comment};
+            logger.info("Logging Aspect: Method executed and returned " + returnedByMethod);
             
-            Object returnedByMethod = joinPoint.proceed(newArguments);
-
-            logger.info("Method executed and returned " + returnedByMethod);
-            
-            return "FAILED";
+            return returnedByMethod;
         } catch (Throwable e) {
             return e;
         }
-    }
-
-    @AfterReturning(value="@annotation(com.cspringstarthere.annotations.ToLog)",
-                    returning = "returnedValue")
-    public void log(Object returnedValue) {
-        logger.info("Method executed and returned " + returnedValue);
     }
 }

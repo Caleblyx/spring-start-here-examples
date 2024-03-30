@@ -21,11 +21,13 @@ public class CommentService {
         logger.info("CommentService created!");
     }
 
-    public void publishComment(Comment comment) {
-        logger.info("Publishing comment:" + comment.getText());
-    }
-    
     @ToLog
+    public String publishComment(Comment comment) {
+        logger.info("Publishing comment:" + comment.getText());
+        return "SUCCESS";
+    }
+
+    
     public void deleteComment(Comment comment) {
         logger.info("Deleting comment:" + comment.getText());
     }
