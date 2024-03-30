@@ -16,7 +16,7 @@ import com.cspringstarthere.model.Comment;
 public class LoggingAspect {
 
     private Logger logger = Logger.getLogger(LoggingAspect.class.getName());
-    @Around("execution(* com.cspringstarthere.services.CommentService.*(..))")
+    @Around("@annotation(com.cspringstarthere.annotations.ToLog)")
     public Object log(ProceedingJoinPoint joinPoint) throws Throwable{
         try {
             String methodName = joinPoint.getSignature().getName();
