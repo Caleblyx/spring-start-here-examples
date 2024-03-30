@@ -15,11 +15,13 @@ public class Main {
 
         var context = new AnnotationConfigApplicationContext(ProjectConfiguration.class);
 
-        var cs1 = context.getBean("commentService", CommentService.class);
-        var cs2 = context.getBean("commentService", CommentService.class);
-        
-        boolean b1 = cs1 == cs2;
+        var service = context.getBean(CommentService.class);
 
-        System.out.println(b1);
+        Comment comment = new Comment();
+
+        comment.setText("Demo comment");
+        comment.setAuthor("Natasha");
+
+        service.publishComment(comment);
     }
 }
